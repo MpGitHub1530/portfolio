@@ -81,7 +81,7 @@ export const Contact = () => {
                   Contact number
                 </p>
                 <p className="mt-2 text-[18px] text-[#141414]">
-                  +49 15207707791
+                  +49 xxxxxxxxx
                 </p>
               </div>
 
