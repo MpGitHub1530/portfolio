@@ -191,14 +191,14 @@ const ExperienceCard = ({
       >
         {/* FRONT SIDE */}
         <div
-          className="absolute inset-0 rounded-[28px] overflow-hidden border border-black/5 relative"
+          className="absolute inset-0 rounded-[28px] overflow-hidden border border-black/5 "
           style={{ backfaceVisibility: "hidden" }}
         >
           {exp.coverImage ? (
             <img
               src={exp.coverImage}
               alt={`${exp.role} cover`}
-              className="w-full h-full object-cover"
+              className="absolute inset-0 w-full h-full object-cover"
               draggable={false}
             />
           ) : (
