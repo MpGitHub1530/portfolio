@@ -32,16 +32,17 @@ export const ProjectDetails = ({ id, title, link }: ProjectDetailsProps) => {
         <div className="absolute inset-0 bg-black/20 transition-colors duration-300 group-hover:bg-black/10" />
 
         <div className="absolute bottom-8 left-6 right-6">
-          <h3 className="text-3xl sm:text-4xl font-semibold leading-tight text-white">
+          <h3 className="text-2xl sm:text-3xl font-semibold leading-tight text-white break-all">
             {title}
           </h3>
 
-        <span className="text-3xl text-white leading-non">
-          ↗
-         </span>
-        
+
+          <span className="text-2xl text-white leading-none">
+            ↗
+          </span>
+
           <p className="mt-3 text-[12px] font-semibold uppercase tracking-[0.10em] text-white/75">
-            View on GitHub 
+            View on GitHub
           </p>
         </div>
 

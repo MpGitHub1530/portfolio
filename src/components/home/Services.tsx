@@ -1,15 +1,13 @@
 "use client"
 
-
-
 import { motion } from "framer-motion"
 import React, { useEffect, useMemo, useRef, useState } from "react"
 import { experienceData, type ExperienceItem } from "@/data/services.data"
 
 export const Services = () => {
   const items = useMemo<ExperienceItem[]>(() => {
-     return [...experienceData, ...experienceData, ...experienceData]
-   }, [])
+    return [...experienceData, ...experienceData, ...experienceData]
+  }, [])
 
   const trackRef = useRef<HTMLDivElement | null>(null)
   const [thirdWidth, setThirdWidth] = useState(0)
@@ -18,15 +16,15 @@ export const Services = () => {
   const [paused, setPaused] = useState(false)
   const [dragOffset, setDragOffset] = useState(0)
 
-   const drag = useRef<{ active: boolean; startX: number; startOffset: number }>({
-     active: false,
-     startX: 0,
-     startOffset: 0,
-   })
+  const drag = useRef<{ active: boolean; startX: number; startOffset: number }>({
+    active: false,
+    startX: 0,
+    startOffset: 0,
+  })
 
   useEffect(() => {
-  setPaused(openId !== null)
-}, [openId])
+    setPaused(openId !== null)
+  }, [openId])
 
   useEffect(() => {
     const el = trackRef.current
@@ -82,36 +80,32 @@ export const Services = () => {
   }, [])
 
   return (
-    <section id="experience" className="w-full bg-[#FAF7F2] scroll-mt-24 overflow-hidden">
+    <section id="work" className="w-full bg-[#FAF7F2] scroll-mt-24 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-20 pb-32">
 
         <motion.div
           initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{  amount: 0.25 }}
+          viewport={{ amount: 0.25 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="max-w-3xl"
         >
-  
 
-<h2 className="mt-6 leading-[0.9] font-semibold text-[#141414] text-[54px] sm:text-[88px] md:text-[112px]">
-  Experience
-  <br />
-  Delivered
-</h2>
+          <h2 className="mt-6 leading-[0.9] font-semibold text-[#141414] text-[54px] sm:text-[88px] md:text-[112px]">
+            Experience
+            <br />
+            Delivered
+          </h2>
 
-<p className="mt-6 max-w-2xl text-[18px] font-semibold uppercase tracking-[0.10em] text-gray-700 leading-relaxed">
-  Roles across AI engineering and full stack systems. 
-</p>
+          <p className="mt-6 max-w-2xl text-[18px] font-semibold uppercase tracking-[0.10em] text-gray-700 leading-relaxed">
+            Roles across AI engineering and full stack systems.
+          </p>
 
         </motion.div>
       </div>
 
       <div
         className="w-full relative left-1/2 -translate-x-1/2 overflow-hidden cursor-grab active:cursor-grabbing select-none"
- 
-
-
         onMouseDown={onMouseDown}
         onMouseMove={onMouseMove}
         onMouseUp={endDrag}
@@ -136,15 +130,15 @@ export const Services = () => {
             }}
           >
             {items.map((exp, idx) => (
-           <ExperienceCard
-            key={`${exp.id}-${idx}`}
-            exp={exp}
-            isOpen={openId === exp.id}
-            onToggle={() => {
-            setOpenId((prev) => (prev === exp.id ? null : exp.id))
-           }}
-           isDragging={() => drag.current.active}
-           />
+              <ExperienceCard
+                key={`${exp.id}-${idx}`}
+                exp={exp}
+                isOpen={openId === exp.id}
+                onToggle={() => {
+                  setOpenId((prev) => (prev === exp.id ? null : exp.id))
+                }}
+                isDragging={() => drag.current.active}
+              />
             ))}
 
           </div>
@@ -249,21 +243,6 @@ const ExperienceCard = ({
               </ul>
             ) : null}
 
-            {exp.details?.length ? (
-              <div className="mt-6">
-                <p className="text-sm font-semibold text-[#2B1B3B]">
-                  Key work
-                </p>
-                <ul className="mt-3 space-y-2">
-                  {exp.details.slice(0, 3).map((d, i) => (
-                    <li key={i} className="text-sm text-gray-600 leading-relaxed">
-                      {d}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ) : null}
-
             <div className="mt-auto pt-6">
               {exp.tech?.length ? (
                 <div className="flex flex-wrap gap-2">
@@ -288,4 +267,3 @@ const ExperienceCard = ({
     </div>
   )
 }
-
